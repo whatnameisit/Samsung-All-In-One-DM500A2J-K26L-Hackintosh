@@ -31,4 +31,7 @@
  ## Credits
  
  Apple for macOS
+ 
  The Acidanthera team for OpenCore and kexts
+ 
+ Other great contributors I have yet to mention
