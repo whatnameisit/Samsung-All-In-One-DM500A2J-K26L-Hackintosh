@@ -339,7 +339,7 @@
 				<key>Base</key>
 				<string></string>
 				<key>Comment</key>
-				<string>_xcpm_bootstrap (Haswell ULT Celeron/Pentium) (c) Meowthra</string>
+				<string>Fake CPUID from Haswell to IvyBridge, thanks to Pike R. Alpha and Meowthra</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -371,7 +371,7 @@
 			<key>AppleXcpmCfgLock</key>
 			<true/>
 			<key>AppleXcpmExtraMsrs</key>
-			<true/>
+			<false/>
 			<key>AppleXcpmForceBoost</key>
 			<false/>
 			<key>CustomSMBIOSGuid</key>

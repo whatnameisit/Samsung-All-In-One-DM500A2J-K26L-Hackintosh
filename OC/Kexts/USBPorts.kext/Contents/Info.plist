@@ -113,15 +113,6 @@
 						<key>port</key>
 						<data>CgAAAA==</data>
 					</dict>
-					<key>SDCR</key>
-					<dict>
-						<key>UsbConnector</key>
-						<integer>255</integer>
-						<key>name</key>
-						<string>SDCR</string>
-						<key>port</key>
-						<data>CAAAAA==</data>
-					</dict>
 					<key>WBCM</key>
 					<dict>
 						<key>UsbConnector</key>
