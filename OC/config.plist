@@ -46,6 +46,22 @@
 				<key>Path</key>
 				<string>SSDT-AMW0_OFF.aml</string>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Fix HPET</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-HPET.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Fix Sleep</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-GPRW.aml</string>
+			</dict>
 		</array>
 		<key>Delete</key>
 		<array>
@@ -82,21 +98,21 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>_Q12 to XQ12</string>
+				<string>Sound fix: Rename HPET._CRS to XCRS, pair up with SSDT-HPET.aml</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
 				<false/>
 				<key>Find</key>
-				<data>X1ExMg==</data>
+				<data>X0NSUwig</data>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
 				<data></data>
 				<key>OemTableId</key>
-				<data></data>
+				<data>AAAAAAAAAAA=</data>
 				<key>Replace</key>
-				<data>WFExMg==</data>
+				<data>WENSUwig</data>
 				<key>ReplaceMask</key>
 				<data></data>
 				<key>Skip</key>
@@ -104,7 +120,33 @@
 				<key>TableLength</key>
 				<integer>0</integer>
 				<key>TableSignature</key>
+				<data>AAAAAA==</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Sleep fix: Rename GPRW() to XPRW(), pair up with SSDT-GPRW.aml</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<false/>
+				<key>Find</key>
+				<data>R1BSVwI=</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
 				<data></data>
+				<key>OemTableId</key>
+				<data>AAAAAAAAAAA=</data>
+				<key>Replace</key>
+				<data>WFBSVwI=</data>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>AAAAAA==</data>
 			</dict>
 		</array>
 		<key>Quirks</key>
@@ -186,6 +228,8 @@
 		<dict>
 			<key>PciRoot(0x0)/Pci(0x3,0x0)</key>
 			<dict>
+				<key>layout-id</key>
+				<integer>22</integer>
 				<key>class-code</key>
 				<data>/////w==</data>
 			</dict>
@@ -193,8 +237,6 @@
 			<dict>
 				<key>layout-id</key>
 				<integer>22</integer>
-				<key>#PinConfigurations</key>
-				<data>AgUABwIEfLA=</data>
 				<key>class-code</key>
 				<data>/////w==</data>
 			</dict>
@@ -265,7 +307,7 @@
 				<key>Comment</key>
 				<string>AR9565 Wi-Fi 1</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/IO80211Family</string>
 				<key>MaxKernel</key>
@@ -281,7 +323,7 @@
 				<key>Comment</key>
 				<string>AR9565 Wi-Fi 2</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/AirportAtheros40</string>
 				<key>MaxKernel</key>
@@ -325,13 +367,26 @@
 			</dict>
 		</array>
 		<key>Block</key>
-		<array/>
+		<array>
+			<dict>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<false/>
+				<key>Identifier</key>
+				<string>com.apple.driver.AppleTyMCEDriver</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>Emulate</key>
 		<dict>
 			<key>Cpuid1Data</key>
-			<data></data>
+			<data>AAAAAAAAAAAAAAAAAAAAAA==</data>
 			<key>Cpuid1Mask</key>
-			<data></data>
+			<data>AAAAAAAAAAAAAAAAAAAAAA==</data>
 		</dict>
 		<key>Patch</key>
 		<array>
@@ -367,9 +422,9 @@
 		<key>Quirks</key>
 		<dict>
 			<key>AppleCpuPmCfgLock</key>
-			<true/>
+			<false/>
 			<key>AppleXcpmCfgLock</key>
-			<true/>
+			<false/>
 			<key>AppleXcpmExtraMsrs</key>
 			<false/>
 			<key>AppleXcpmForceBoost</key>
@@ -391,7 +446,7 @@
 			<key>PanicNoKextDump</key>
 			<true/>
 			<key>PowerTimeoutKernelPanic</key>
-			<false/>
+			<true/>
 			<key>ThirdPartyDrives</key>
 			<false/>
 			<key>XhciPortLimit</key>
@@ -490,11 +545,11 @@
 				<key>Comment</key>
 				<string>Not signed for security reasons</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Name</key>
-				<string>VerifyMsrE2</string>
+				<string>UEFI Shell</string>
 				<key>Path</key>
-				<string>VerifyMsrE2.efi</string>
+				<string>OpenShell.efi</string>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -553,7 +608,7 @@
 				<key>csr-active-config</key>
 				<data>AAAAAA==</data>
 				<key>prev-lang:kbd</key>
-				<string>en-US:0</string>
+				<data>ZW4tVVM6MA==</data>
 			</dict>
 		</dict>
 		<key>Delete</key>
@@ -673,8 +728,9 @@
 		<true/>
 		<key>Drivers</key>
 		<array>
-			<string>OpenRuntime.efi</string>
 			<string>VBoxHfs.efi</string>
+			<string>#HfsPlus.efi</string>
+			<string>OpenRuntime.efi</string>
 			<string>#OpenCanopy.efi</string>
 			<string>#AudioDxe.efi</string>
 		</array>
@@ -695,7 +751,7 @@
 			<key>PointerSupport</key>
 			<false/>
 			<key>PointerSupportMode</key>
-			<string>ASUS</string>
+			<string></string>
 			<key>TimerResolution</key>
 			<integer>50000</integer>
 		</dict>

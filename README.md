@@ -15,7 +15,7 @@
  
  1. Native power management with CPU spoofing
  2. Ethernet
- 3. Wi-Fi by loading High Sierra's IO80211HostFamily.kext and modified AirportAtheros40.kext via OpenCore's kext injection.
+ 3. Wi-Fi by loading High Sierra's IO80211HostFamily.kext and modified AirportAtheros40.kext via OpenCore's kext injection. Use after installing the OS.
  4. Audio (Currently disabled with class-code of FFFFFFFF because there is noise when turning on and off)
  
  ## Not working
@@ -23,6 +23,7 @@
  1. The IGPU Intel HD Graphics (Haswell) has one report of working QE/CI which could be fake and for which the support is only coded for 10.12.6, 10.13.6, and 10.14-10.14.3. I will need to get a compatible GPU and connect it via mPCIe which was supplied with the TV tuner card.
  2. The support for the AR3012 bluetooth has been dropped since High Sierra. I will attach a bluetooth dongle on the EXP GDC USB slot.
  3. The SD card reader RTS5129 has no support in macOS. Faking it as the native RTS5138 does not work.
+ 4. The Wi-Fi kext crashes during updates and/or installations.
  
  
  ## Unlock MSR 0xE2 Register(CFG Lock)
