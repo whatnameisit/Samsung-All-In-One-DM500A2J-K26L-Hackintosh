@@ -728,8 +728,8 @@
 		<true/>
 		<key>Drivers</key>
 		<array>
-			<string>VBoxHfs.efi</string>
-			<string>#HfsPlus.efi</string>
+			<string>ExFatDxeLegacy.efi</string>
+			<string>HfsPlusLegacy.efi</string>
 			<string>OpenRuntime.efi</string>
 			<string>#OpenCanopy.efi</string>
 			<string>#AudioDxe.efi</string>
