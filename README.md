@@ -43,7 +43,6 @@
  
  1. Install a compatible dGPU
  2. Fix audio noise
- 3. Make HfsPlus.efi function with OpenCore
  
  ## Credits
  
