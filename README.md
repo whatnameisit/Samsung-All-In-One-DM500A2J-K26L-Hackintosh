@@ -30,7 +30,7 @@
  ### Using modified Grub Shell
  
  1. Dump the UEFI using the tool provided in this guide [ASUS G701VI: Unlock Hidden BIOS Settings](https://octoperf.com/blog/2018/11/20/asus-g701vi-bios-unlock/), `1. Software Tools` throgh `2.1 Dumping BIOS`.
- 2. Follow Dortania's [Fixing CFG Lock](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html) to learn how to find `CFG Lock`, `Primary Display`, and `IGPU Port Configuration` and also the command setup_var.
+ 2. Follow Dortania's [Fixing CFG Lock](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html) to learn how to find `CFG Lock`, `Primary Display`, and `IGPU Port Configuration` and also the command `setup_var`.
  3. Unlock MSR 0xE2 Register.
  4. ind `Primary Display` and `IGPU Port Configuration` register and values.
  4. If the DGPU supports UEFI type find set PCIe as `Primary Display`. If it doesn’t, set IGFX as primary.
@@ -38,7 +38,6 @@
  
  - Note
     - You should disable the quirks that patched the kernel to boot with CFG Lock on: `AppleCpuPmCfgLock` and `AppleXcpmCfgLock`.
-    - 
 
  ## To-Do's
  
