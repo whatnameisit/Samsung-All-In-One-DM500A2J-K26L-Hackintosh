@@ -8,23 +8,15 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>PluginType=1</string>
+				<string>Disable WMI AMW0</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-PLUG.aml</string>
+				<string>SSDT-AMW0_OFF.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SMBUS Fix</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-SBUS-MCHC.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>USB Power and fake EC</string>
+				<string>Create fake EC device and disable original</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
@@ -40,30 +32,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Disable WMI AMW0</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-AMW0_OFF.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Fix Sleep</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-GPRW.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Fix VDA Decode</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-IMEI.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Configure EXP GDC</string>
 				<key>Enabled</key>
 				<true/>
@@ -72,11 +40,43 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Fix Sound</string>
+				<string>Fix sleep</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-GPRW.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Rework conflicting IRQs</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
 				<string>SSDT-HPET.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Add VDA decode support</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-IMEI.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable XCPM</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-PLUG.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Add SMBus compatibility</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-SBUS-MCHC.aml</string>
 			</dict>
 		</array>
 		<key>Delete</key>
@@ -86,7 +86,7 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>Sleep Fix: Rename GPRW to ZPRW</string>
+				<string>Sleep fix: Rename M(GPRW) to ZPRW</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
@@ -112,7 +112,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Sound fix: Rename HPET._CRS to XCRS, pair up with SSDT-HPET.aml</string>
+				<string>IRQ fix: Rename M(HPET._CRS) to XCRS</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
@@ -689,7 +689,7 @@
 			<key>SpoofVendor</key>
 			<true/>
 			<key>SystemProductName</key>
-			<string>iMacPro1,1</string>
+			<string>iMac14,2</string>
 			<key>SystemMemoryStatus</key>
 			<string>Upgradable</string>
 			<key>SystemSerialNumber</key>
