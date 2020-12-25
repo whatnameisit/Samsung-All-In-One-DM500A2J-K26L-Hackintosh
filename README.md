@@ -35,7 +35,9 @@
  5. If you choose to enable IQSV, always enable `IGFX`. If you use iMacPro1,1 profile, disable `IGFX`.
  - Note
     - You should disable the quirks `AppleCpuPmCfgLock` and `AppleXcpmCfgLock` now the UEFI allows updating MSR 0xE2 register.
-    - Depending on the SMBIOS, you will need to enable or disable `SSDT-USBX.aml`. Apple specifies USB power for iMac15,1 in stock kexts and for iMacPro1,1 ACPI.
+    
+ ## SMBIOS choice
+ 1. I am currently using iMac14,2 profile to boot into El Capitan which does not support iMacPro1,1. `SSDT-USBX.aml` is not needed as Apple specifies USB power for iMac14,2 in stock kexts. Once I get a better graphics card and use iMacPro1,1 profile, I will need to add the SSDT.
 
  ## To-Do's
  
