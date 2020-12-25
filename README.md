@@ -17,7 +17,7 @@
     - The card is soldered.
     - Continuity features do not work.
 2. The SD care reader cannot read any cards.
-3. The IGPU Intel HD Graphics (Haskell) does not work well with macOS. Therefore a compatible external graphics card is required and connected via mPCIe. BIOS mod or modifying setup variables with modified Grub Shell is also required to output the video.
+3. The IGPU Intel HD Graphics (Haswell) does not work well with macOS. Therefore a compatible external graphics card is required and connected via mPCIe. Modding UEFI or setup variables with modified Grub Shell is also required to make UEFI recognize DGPU.
 4. ALC282 produces noise when the computer boots or shuts down. Disabling sound output by switching to external monitor cuts off the internal sound output whereas internal sound input is preserved.
  5. The graphics card does not sleep sometimes.
  
@@ -34,8 +34,8 @@
     - You will need to switch the monitor's `Source` and set `PC` mode to get into UEFI setup and OpenCore bootpicker if `IGFX` is primary.
  5. If you choose to enable IQSV, always enable `IGFX`. If you use iMacPro1,1 profile, disable `IGFX`.
  - Note
-    - You should disable the quirks `AppleCpuPmCfgLock` and `AppleXcpmCfgLock` now the BIOS allows updating MSR 0xE2 register.
-    - Depending on the SMBIOS, you will need to enable or disable SSDT-USBX.aml. Apple specifies USB power for iMac15,1 in stock kexts and for iMacPro1,1 ACPI.
+    - You should disable the quirks `AppleCpuPmCfgLock` and `AppleXcpmCfgLock` now the UEFI allows updating MSR 0xE2 register.
+    - Depending on the SMBIOS, you will need to enable or disable `SSDT-USBX.aml`. Apple specifies USB power for iMac15,1 in stock kexts and for iMacPro1,1 ACPI.
 
  ## To-Do's
  
