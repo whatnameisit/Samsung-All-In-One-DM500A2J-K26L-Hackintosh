@@ -1,7 +1,6 @@
 # Samsung All-In-One DM500A2J-K26L Hackintosh
  
  ## System specification
-
 | Name | Description |
 | - | - |
 | CPU | Intel Pentium 3558U |
@@ -20,24 +19,23 @@
 2. The SD care reader cannot read any cards.
 3. The IGPU Intel HD Graphics (Haskell) does not work well with macOS. Therefore a compatible external graphics card is required and connected via mPCIe. BIOS mod or modifying setup variables with modified Grub Shell is also required to output the video.
 4. ALC282 produces noise when the computer boots or shuts down. Disabling sound output by switching to external monitor cuts off the internal sound output whereas internal sound input is preserved.
+ 5. The graphics card does not sleep sometimes.
  
- 
- ## BIOS tweak
- ### Modded BIOS
- 1. Learn how to flash AMI BIOS. This may brick the computer, so I don’t recommend it unless you understand the consequences and know how to unbrick in case something goes wrong.
- 2. [Link to the BIOS image](https://www.bios-mods.com/forum/Thread-Request-Unlock-Advanced-and-Chipset-tabs-on-Samsung-All-In-One-DM500A2J) Thanks to genius239 at bios-mods.com
+ ## UEFI setup tweaks
+ ### Using modded Aptio Setup Utility image
+ 1. Learn how to flash AMI UEFI. This may brick the computer, so I don’t recommend it unless you understand the consequences and know how to unbrick in case something goes wrong.
+ 2. [Link to the UEFI image](https://www.bios-mods.com/forum/Thread-Request-Unlock-Advanced-and-Chipset-tabs-on-Samsung-All-In-One-DM500A2J) Thanks to genius239 at bios-mods.com
 
  ### Using modified Grub Shell
- 
  1. Dump the UEFI using the tool provided in this guide [ASUS G701VI: Unlock Hidden BIOS Settings](https://octoperf.com/blog/2018/11/20/asus-g701vi-bios-unlock/), `1. Software Tools` throgh `2.1 Dumping BIOS`.
- 2. Follow Dortania's [Fixing CFG Lock](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html) to learn how to find `CFG Lock`, `Primary Display`, and `IGPU Port Configuration` and also the command `setup_var`.
- 3. Unlock MSR 0xE2 Register.
- 4. ind `Primary Display` and `IGPU Port Configuration` register and values.
- 4. If the DGPU supports UEFI type find set PCIe as `Primary Display`. If it doesn’t, set IGFX as primary.
- 5. If you choose to enable IQSV, Always enable IGPU. If you use iMacPro1,1 profile, disable IGPU.
- 
+ 2. Follow Dortania's [Fixing CFG Lock](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html) to learn how to find `CFG Lock` register offset and use `setup_var`. You can use the same method to also find `Primary Display` and `IGPU Port Configuration` offsets.
+ 4. Find `CFG LOCK`, `Primary Display`, and `IGPU Port Configuration` offsets and setup values.
+ 4. If the DGPU supports UEFI, set `PCIe` as `Primary Display`. If it doesn’t, set `IGFX` as primary.
+    - You will need to switch the monitor's `Source` and set `PC` mode to get into UEFI setup and OpenCore bootpicker if `IGFX` is primary.
+ 5. If you choose to enable IQSV, always enable `IGFX`. If you use iMacPro1,1 profile, disable `IGFX`.
  - Note
-    - You should disable the quirks that patched the kernel to boot with CFG Lock on: `AppleCpuPmCfgLock` and `AppleXcpmCfgLock`.
+    - You should disable the quirks `AppleCpuPmCfgLock` and `AppleXcpmCfgLock` now the BIOS allows updating MSR 0xE2 register.
+    - Depending on the SMBIOS, you will need to enable or disable SSDT-USBX.aml. Apple specifies USB power for iMac15,1 in stock kexts and for iMacPro1,1 ACPI.
 
  ## To-Do's
  
