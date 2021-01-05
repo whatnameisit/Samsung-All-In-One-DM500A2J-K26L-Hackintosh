@@ -1,8 +1,9 @@
-# Samsung All-In-One DM500A2J-K26L Hackintosh
+# Samsung ATIV One 5 DM500A2J-K26L Hackintosh
  
  ## System specification
 | Name | Description |
 | - | - |
+| Model | ATIV One 5 DM500A2J-K26L |
 | CPU | Intel Pentium 3558U |
 | IGPU | Intel HD Graphics (Haswell) |
 | DGPU | Compatible [AMD](https://dortania.github.io/GPU-Buyers-Guide/modern-gpus/amd-gpu.html) / [Nvidia](https://dortania.github.io/GPU-Buyers-Guide/modern-gpus/nvidia-gpu.html) Graphics card in mPCIe slot with EXP GDC |
@@ -14,8 +15,8 @@
  ## Issues
 1. Apple dropped support for Atheros Wi-Fi since Mojave and AR9565 it not natively supported. You can activate Wi-Fi on Mojave and higher OS using IO80211Family.kext and patched AirportAtheros40.kext from High Sierra.
     - The Wi-Fi is very slow.
-    - The card is soldered.
     - Continuity features do not work.
+    - The card is soldered and cannot be replaced.
 2. The SD care reader cannot read any cards.
 3. The IGPU Intel HD Graphics (Haswell) does not work well with macOS. Therefore a compatible external graphics card is required and connected via mPCIe. Modding UEFI or setup variables with modified Grub Shell is also required to make UEFI recognize DGPU.
 4. On non-Windows, ALC282 produces noise when the computer boots or shuts down. Disabling sound output by switching to external monitor cuts off the internal sound output whereas internal sound input is still preserved.
