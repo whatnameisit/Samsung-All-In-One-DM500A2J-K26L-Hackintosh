@@ -3,7 +3,7 @@
  ## System specification
 | Name | Description |
 | - | - |
-| Model | ATIV One 5 DM500A2J-K26L |
+| Model | Samsung ATIV One 5 DM500A2J-K26L |
 | CPU | Intel Pentium 3558U |
 | IGPU | Intel HD Graphics (Haswell) |
 | DGPU | Compatible [AMD](https://dortania.github.io/GPU-Buyers-Guide/modern-gpus/amd-gpu.html) / [Nvidia](https://dortania.github.io/GPU-Buyers-Guide/modern-gpus/nvidia-gpu.html) Graphics card in mPCIe slot with EXP GDC |
