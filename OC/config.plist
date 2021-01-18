@@ -88,8 +88,7 @@
 			</dict>
 		</array>
 		<key>Delete</key>
-		<array>
-		</array>
+		<array/>
 		<key>Patch</key>
 		<array>
 			<dict>
@@ -533,13 +532,14 @@
 				<string></string>
 				<key>Comment</key>
 				<string>Haswell+ low-end Celeron/Pentium cpuid_set_info_rdmsr (c) vit9696</string>
-				<string>#Disable AVX Check</string>
+				<key>#Comment</key>
+				<string>Disable AVX check</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
-				<data>B9A00100000F32</data>
+				<data>uaABAAAPMg==</data>
 				<key>Identifier</key>
 				<string>kernel</string>
 				<key>Limit</key>
@@ -551,7 +551,7 @@
 				<key>MinKernel</key>
 				<string>16.0.0</string>
 				<key>Replace</key>
-				<data>B9A001000031C0</data>
+				<data>uaABAAAxwA==</data>
 				<key>ReplaceMask</key>
 				<data></data>
 				<key>Skip</key>
@@ -976,8 +976,7 @@
 			<false/>
 		</dict>
 		<key>ReservedMemory</key>
-		<array>
-		</array>
+		<array/>
 	</dict>
 </dict>
 </plist>
