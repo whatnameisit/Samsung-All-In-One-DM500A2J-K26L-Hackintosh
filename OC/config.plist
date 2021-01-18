@@ -96,7 +96,7 @@
 				<key>Comment</key>
 				<string>Sleep fix: Rename M(GPRW) to ZPRW</string>
 				<key>Count</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
@@ -122,21 +122,21 @@
 				<key>Comment</key>
 				<string>Sleep fix: Rename M(ESEL) to WSEL</string>
 				<key>Count</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
-				<data>RVNFTAg=</data>
+				<data>FABFU0VM</data>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
-				<data></data>
+				<data>/wD/////</data>
 				<key>OemTableId</key>
 				<data></data>
 				<key>Replace</key>
-				<data>V1NFTAg=</data>
+				<data>FABXU0VM</data>
 				<key>ReplaceMask</key>
-				<data></data>
+				<data>/wD/////</data>
 				<key>Skip</key>
 				<integer>0</integer>
 				<key>TableLength</key>
@@ -148,7 +148,7 @@
 				<key>Comment</key>
 				<string>Sleep fix: Rename M(XSEL) to ZSEL</string>
 				<key>Count</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
@@ -174,7 +174,7 @@
 				<key>Comment</key>
 				<string>Sleep fix: Rename M(XWAK) to ZWAK</string>
 				<key>Count</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
@@ -200,7 +200,7 @@
 				<key>Comment</key>
 				<string>IRQ fix: Rename M(HPET._CRS) to XCRS</string>
 				<key>Count</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
@@ -502,7 +502,7 @@
 				<key>Base</key>
 				<string></string>
 				<key>Comment</key>
-				<string>Fake CPUID from Haswell to IvyBridge, thanks to Pike R. Alpha and Meowthra</string>
+				<string>Fake CPUID from Haswell to IvyBridge and enable XCPM, thanks to Pike R. Alpha and Meowthra</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
@@ -521,6 +521,37 @@
 				<string></string>
 				<key>Replace</key>
 				<data>uzXoZR8=</data>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>Skip</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>Base</key>
+				<string></string>
+				<key>Comment</key>
+				<string>Haswell+ low-end Celeron/Pentium cpuid_set_info_rdmsr (c) vit9696</string>
+				<string>#Disable AVX Check</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>B9A00100000F32</data>
+				<key>Identifier</key>
+				<string>kernel</string>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data></data>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string>16.0.0</string>
+				<key>Replace</key>
+				<data>B9A001000031C0</data>
 				<key>ReplaceMask</key>
 				<data></data>
 				<key>Skip</key>
