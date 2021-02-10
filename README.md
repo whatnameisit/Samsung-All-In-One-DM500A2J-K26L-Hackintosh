@@ -1,7 +1,7 @@
 # Samsung ATIV One 5 DM500A2J-K26L Hackintosh
 
 ## System specification
-| Name | Description |
+| Item | Details |
 | - | - |
 | Model | Samsung ATIV One 5 DM500A2J-K26L |
 | CPU | Intel Pentium 3558U |
@@ -18,8 +18,8 @@
     - Continuity features do not work.
     - The card is soldered and cannot be replaced.
 2. The SD care reader cannot read any cards.
-3. The IGPU Intel HD Graphics (Haswell) does not work well with macOS. Therefore a compatible external graphics card is required and connected via mPCIe. Modding UEFI or setup variables with modified Grub Shell is also required to make UEFI recognize DGPU.
-4. On non-Windows, ALC282 produces noise when the computer boots or shuts down. Disabling sound output by switching to external monitor cuts off the internal sound output whereas internal sound input is still preserved.
+3. The IGPU Intel HD Graphics (Haswell) does not work well with macOS. Therefore a compatible external graphics card is required and is to be connected via mPCIe. Flashing a modded UEFI image or setup variables with modified Grub Shell is also required to make UEFI recognize DGPU.
+4. On non-Windows, ALC282 produces noise when the computer boots or shuts down. Disabling sound output by switching to external monitor cuts off the internal sound output which still preserves internal sound input.
 5. The fan on the graphics card does not sleep sometimes.
  
 ## UEFI setup tweaks
@@ -45,11 +45,11 @@ I am currently using iMac14,2 profile to boot into El Capitan which does not sup
 Get a better graphics card. Currently GTX550TI which cannot work reliably on High Sierra or higher.
 
 ## Others
-If you have a variant such as DM500A2J-K30D, K32D, or K38D, you will notive that the CPU is an i3 model. Lucky you. A lot of fun things could be done.
+If you have a variant such as DM500A2J-K30D, K32D, or K38D, you will notice that the CPU is an i3 model. Lucky you. A lot of fun things could be done.
 - Delete the kernel patch `Fake CPUID` and enjoy native power management and advanced CPU features.
 - Inject a working `ig-platform-id` and `SSDT-PNLF` found in OpenCorePkg bundle for working iGPU QE/CI and native brightness control. Test the HDMI-out and configure the framebuffer.
 - Change `SMBIOS` to a iMac14,4 which is an iGPU-only model. You can update to Big Sur with no problem. You still have DRM issues.
-- Buy a Broadcom Wi-Fi/Bluetooth Combo module for mPCIe. There are three antennas on the mainboard: Atheros AR9565 / AR3012 has two antennas and TV Tuner Card originally on mPCIe slot has one antenna. Their form factor is U.FL. One option would be BCM94352HMB and Atheros's two antennas. The antennas may be short; use your soldering skills or tear down the motherboard to connect them. Another option is BCM94360HMB and three MHF4 to U.FL adaptors that connect to all three antennas. Test the signal and reposition the TV Tuner Card's antenna which is connected to the TV coax socket. BCM94352HMB works with AirportBrcmFixup, BrcmPatchRAM, and `ExtendBTFeatureFlags` in OpenCore, and BCM94360HMB works natively. Both support Continuity. Finally disable Atheros AR9565 / AR3012 by injecting `class-code=FFFFFFFF` into AR9565 and killing AR3012's USB port and enable mPCIe's USB port for full support.
+- Buy a Broadcom Wi-Fi/Bluetooth Combo module for mPCIe. There are three antennas on the mainboard: two from Atheros AR9565 / AR3012 and one from TV Tuner Card originally on mPCIe slot. All share the form factor of U.FL. One option would be BCM94352HMB and Atheros's two antennas. The antennas may be short; use your soldering skills or tear down the motherboard to connect them. Another option is BCM94360HMB and three MHF4 to U.FL adaptors that connect to all three antennas. Test the signal and reposition the antenna on TV Tuner Card which is connected to the TV coax socket. Reconfigure USB mapping once you connect the card. BCM94352HMB works with AirportBrcmFixup, BrcmPatchRAM, and `ExtendBTFeatureFlags` in OpenCore, and BCM94360HMB works natively. Both support Continuity. Finally disable Atheros AR9565 / AR3012 by injecting `class-code=FFFFFFFF` into AR9565 and killing AR3012's USB port and enable mPCIe's USB port for full support.
 
 ## Credits
 Apple for macOS
