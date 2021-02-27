@@ -278,15 +278,6 @@
 	<dict>
 		<key>Add</key>
 		<dict>
-			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
-			<dict>
-				<key>model</key>
-				<string>Intel GT1 HD Graphics(Haswell-ULT)</string>
-				<key>AAPL,ig-platform-id</key>
-				<data>BAASBA==</data>
-				<key>device-id</key>
-				<data>EgQAAA==</data>
-			</dict>
 			<key>PciRoot(0x0)/Pci(0x1b,0x0)</key>
 			<dict>
 				<key>layout-id</key>
