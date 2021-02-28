@@ -1,52 +1,58 @@
-# Samsung All-In-One DM500A2J-K26L Hackintosh
- 
- ## System specification
+# Samsung ATIV One 5 DM500A2J-K26L Hackintosh
 
-| Name | Description |
+## System specification
+| Item | Details |
 | - | - |
+| Model | Samsung ATIV One 5 DM500A2J-K26L |
 | CPU | Intel Pentium 3558U |
 | IGPU | Intel HD Graphics (Haswell) |
-| DGPU | Compatible [AMD](https://dortania.github.io/GPU-Buyers-Guide/modern-gpus/amd-gpu.html) / [Nvidia](https://dortania.github.io/GPU-Buyers-Guide/modern-gpus/nvidia-gpu.html) Graphics card in mPCIe slot with EXP GDC |
+| DGPU | Sapphire HD 7750 1GB in mPCIe slot with EXP GDC + half-to-full mPCIe extension card |
 | Ethernet | Realtek RTL8168 Gigabit Ethernet Controller |
 | Wi-Fi / Bluetooth | Qualcomm Atheros AR9565 / AR3012 |
 | Audio | Realtek HD Audio ALC282 |
 | SD Card Reader | *Realtek USB Card Reader RTS5129 (limited support)* |
  
- ## Issues
-1. Apple dropped support for Atheros Wi-Fi since Mojave and AR9565 it not natively supported. You can activate Wi-Fi on Mojave and higher OS using IO80211Family.kext and patched AirportAtheros40.kext from High Sierra.
+## Issues
+1. Apple dropped support for Atheros Wi-Fi since Mojave and AR9565 it not natively supported. You can activate Wi-Fi on Mojave and higher OS using IO80211Family.kext and patched AirportAtheros40.kext from High Sierra. Install [HS80211Family.kext](https://www.insanelymac.com/forum/files/file/1008-io80211family-modif/) and the corresponding AirportAtheros40.kext for AR9565 on the bootloader. However,
     - The Wi-Fi is very slow.
-    - The card is soldered.
     - Continuity features do not work.
-2. The SD care reader cannot read any cards.
-3. The IGPU Intel HD Graphics (Haskell) does not work well with macOS. Therefore a compatible external graphics card is required and connected via mPCIe. BIOS mod or modifying setup variables with modified Grub Shell is also required to output the video.
-4. ALC282 produces noise when the computer boots or shuts down. Disabling sound output by switching to external monitor cuts off the internal sound output whereas internal sound input is preserved.
- 
- 
- ## BIOS tweak
- ### Modded BIOS
- 1. Learn how to flash AMI BIOS. This may brick the computer, so I don’t recommend it unless you understand the consequences and know how to unbrick in case something goes wrong.
- 2. [Link to the BIOS image](https://www.bios-mods.com/forum/Thread-Request-Unlock-Advanced-and-Chipset-tabs-on-Samsung-All-In-One-DM500A2J) Thanks to genius239 at bios-mods.com
+    - The card is soldered and cannot be replaced.
+2. The SD card reader cannot read any cards. Refer to [this guide](https://github.com/ManuGithubSteam/XiaoMi-Pro-2018-HackintoshOC/wiki/2.0-Setup-SD-Card-Reader) to use it through VMWare.
+3. The IGPU Intel HD Graphics (Haswell) does not work well with macOS. Therefore, a compatible external graphics card is required and is to be connected via mPCIe. Flashing a modded UEFI image or setup variables with modified Grub Shell is also required to make UEFI recognize DGPU.
+4. Updating VBIOS with GOP driver is necessary so that the user would not have to switch between `PC` mode and `HDMI` mode from UEFI Setup / OpenCore bootpicker and OS the machine booted into.
+5. On non-Windows, ALC282 produces noise when the computer boots or shuts down. Disabling sound output by switching to `HDMI` mode cuts off the internal sound output which still preserves internal sound input. One may contribute by creating a layout for this machine.
 
- ### Using modified Grub Shell
- 
- 1. Dump the UEFI using the tool provided in this guide [ASUS G701VI: Unlock Hidden BIOS Settings](https://octoperf.com/blog/2018/11/20/asus-g701vi-bios-unlock/), `1. Software Tools` throgh `2.1 Dumping BIOS`.
- 2. Follow Dortania's [Fixing CFG Lock](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html) to learn how to find `CFG Lock`, `Primary Display`, and `IGPU Port Configuration` and also the command `setup_var`.
- 3. Unlock MSR 0xE2 Register.
- 4. ind `Primary Display` and `IGPU Port Configuration` register and values.
- 4. If the DGPU supports UEFI type find set PCIe as `Primary Display`. If it doesn’t, set IGFX as primary.
- 5. If you choose to enable IQSV, Always enable IGPU. If you use iMacPro1,1 profile, disable IGPU.
- 
- - Note
-    - You should disable the quirks that patched the kernel to boot with CFG Lock on: `AppleCpuPmCfgLock` and `AppleXcpmCfgLock`.
+## UEFI setup
+### Using modded Aptio Setup Utility image
+1. Learn how to flash AMI UEFI. This may brick the computer, so I don’t recommend it unless you understand the consequences and know how to unbrick in case something goes wrong.
+2. [Link to the UEFI mod work](https://www.bios-mods.com/forum/Thread-Request-Unlock-Advanced-and-Chipset-tabs-on-Samsung-All-In-One-DM500A2J) Thanks to genius239 at bios-mods.com
+3. Use [this](https://www.supermicro.com/en/products/motherboard/X10SLQ-L) version of Afudos which still has /GAN option to force flash.
 
- ## To-Do's
- 
- 1. Get a better graphics card. Currently GTX550TI which cannot work reliably on High Sierra or higher.
- 
- ## Credits
- 
- Apple for macOS
- 
- The Acidanthera team for OpenCore and kexts
- 
- Other great contributors I have yet to mention
+### Using modified Grub Shell
+1. Dump the UEFI using the tool provided in this guide [ASUS G701VI: Unlock Hidden BIOS Settings](https://octoperf.com/blog/2018/11/20/asus-g701vi-bios-unlock/), `1. Software Tools` throgh `2.1 Dumping BIOS`.
+2. Follow Dortania's [Fixing CFG Lock](https://dortania.github.io/OpenCore-Post-Install/misc/msr-lock.html) to learn how to find `CFG Lock` register offset and how to use `setup_var`. You can use the same method to also find `Primary Display` offsets.
+3. Find `CFG Lock` and `Primary Display` offsets and their setup values.
+4. If the DGPU supports UEFI, select `PCIe` in `Primary Display`. If it doesn’t, try updating the VBIOS with Gop driver and select the same option. If the update is limited, set `IGFX` as primary.
+    - You will need to switch the monitor's `Source` and set `PC` mode to get into UEFI setup and OpenCore bootpicker if `IGFX` is primary.
+5. Disable `CFG Lock`.
+
+## Updating VBIOS with GOP driver
+1. Follow the directions found in [this](https://www.win-raid.com/t892f16-AMD-and-Nvidia-GOP-update-No-requests-DIY.html) thread.
+- Note: The ROM images are specifically for Sapphire HD 7750 1GB with device-id 1002:683F and subsystem-id 174B:E213. Follow the update method for your own card.
+
+## To-Do's
+See if I can split mPCIe and attach a Broadcom Wi-Fi/Bluetooth module.
+
+## Others
+If you have a variant such as DM500A2J-K30D, K32D, or K38D, you will notice that the CPU is an i3 model. Lucky you. A lot of fun things could be done.
+- Delete the kernel patch `Fake CPUID` and enjoy native power management and advanced CPU features.
+- Inject a working `ig-platform-id` and `SSDT-PNLF` found in OpenCorePkg bundle for working iGPU QE/CI and native brightness control. Test the HDMI-out and configure the framebuffer.
+- Change `SMBIOS` to iMac14,4 which is an iGPU-only model. You can update to Big Sur with no problem. You still have DRM and sound noise issues.
+- Buy a Broadcom Wi-Fi/Bluetooth Combo module for mPCIe. There are three antennas on the mainboard: two from Atheros AR9565 / AR3012 and one from TV Tuner Card originally on mPCIe slot. All share the form factor of U.FL. One option would be BCM94352HMB and Atheros's two antennas. The antennas may be short; use your soldering skills or tear down the motherboard to connect them. Another option is BCM94360HMB and three MHF4 to U.FL adaptors that connect to all three antennas. Test the signal and reposition the antenna on TV Tuner Card which is connected to the TV coax socket. For working Bluetooth, reconfigure USB mapping once you insert the card. BCM94352HMB works with AirportBrcmFixup, BrcmPatchRAM, and `ExtendBTFeatureFlags` in OpenCore, and BCM94360HMB works natively. Both support Continuity. Finally, disable Atheros AR9565 / AR3012 by injecting `class-code=FFFFFFFF` into AR9565 and killing AR3012's bluetooth.
+
+## Credits
+Apple for macOS
+
+The Acidanthera team for OpenCore and kexts
+
+Other great contributors I have yet to mention
