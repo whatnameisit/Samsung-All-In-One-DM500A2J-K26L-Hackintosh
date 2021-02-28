@@ -19,8 +19,8 @@
     - The card is soldered and cannot be replaced.
 2. The SD card reader cannot read any cards. Refer to [this guide](https://github.com/ManuGithubSteam/XiaoMi-Pro-2018-HackintoshOC/wiki/2.0-Setup-SD-Card-Reader) to use it through VMWare.
 3. The IGPU Intel HD Graphics (Haswell) does not work well with macOS. Therefore, a compatible external graphics card is required and is to be connected via mPCIe. Flashing a modded UEFI image or setup variables with modified Grub Shell is also required to make UEFI recognize DGPU.
-4. Updating VBIOS with GOP driver is necessary so that the user would not have to switch between PC screen mode and HDMI screen mode from UEFI Setup / OpenCore bootpicker and OS the machine booted into.
-5. On non-Windows, ALC282 produces noise when the computer boots or shuts down. Disabling sound output by switching to HDMI screen mode cuts off the internal sound output which still preserves internal sound input. One may contribute by creating a layout for this machine.
+4. Updating VBIOS with GOP driver is necessary so that the user would not have to switch between `PC` mode and `HDMI` mode from UEFI Setup / OpenCore bootpicker and OS the machine booted into.
+5. On non-Windows, ALC282 produces noise when the computer boots or shuts down. Disabling sound output by switching to `HDMI` mode cuts off the internal sound output which still preserves internal sound input. One may contribute by creating a layout for this machine.
 
 ## UEFI setup
 ### Using modded Aptio Setup Utility image
