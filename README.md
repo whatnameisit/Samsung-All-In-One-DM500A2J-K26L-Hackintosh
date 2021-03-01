@@ -43,9 +43,6 @@
 1. Follow the directions found in [this](https://www.win-raid.com/t892f16-AMD-and-Nvidia-GOP-update-No-requests-DIY.html) thread.
 - Note: The ROM images in this repository are specifically for Sapphire HD 7750 1GB with device-id 1002:683F and subsystem-id 174B:E213. Follow the update method for your own card.
 
-## To-Do's
-The mPCIe width is x1, so it cannot be split. There is an unsoldered M.2 M key slot which is probably connected to PCIe Root Port #1. I have no skills to solder a slot onto the motherboard.
-
 ## Others
 1. In regards to the Wi-Fi/Bluetooth: The mPCIe width is x1 in its root, so it cannot be split. There is an unsoldered M.2 M key slot which is probably connected to PCIe Root Port #1 and SATA Port #2. I have no skills to solder the slot onto the motherboard. If you have the right tools and skills, you can try soldering the M.2 M key slot and get Wi-Fi and/or Bluetooth working. You would probably use BCM94360CS or BCM94360CS2 with an adapter. The former has three antennas with one connected to Bluetooth. The latter has two antennas which are only connected to Wi-Fi, so there will be weak Bluetooth connection. In either case, you can try connecting the internal Bluetooth to mPCIe's D- and D+ and save a USB2 port. If you choose not to connect the internal Bluetooth, buy a Broadcom USB Bluetooth dongle and insert it in one of the USB2 ports.
 2. If you have a variant such as DM500A2J-K30D, K32D, or K38D, you will notice that the CPU is an i3 model. Lucky you. A lot of fun things could be done.
