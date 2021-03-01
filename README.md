@@ -5,12 +5,13 @@
 | - | - |
 | Model | Samsung ATIV One 5 DM500A2J-K26L |
 | CPU | Intel Pentium 3558U |
-| IGPU | Intel HD Graphics (Haswell) |
+| IGPU | *Intel HD Graphics (Haswell) (disabled from UEFI setup)* |
 | DGPU | Sapphire HD 7750 1GB in mPCIe slot with EXP GDC + half-to-full mPCIe extension card |
 | Ethernet | Realtek RTL8168 Gigabit Ethernet Controller |
 | Wi-Fi / Bluetooth | Qualcomm Atheros AR9565 / AR3012 |
 | Audio | Realtek HD Audio ALC282 |
 | SD Card Reader | *Realtek USB Card Reader RTS5129 (limited support)* |
+| UEFI BIOS | Aptio Setup Utility P05AEK |
  
 ## Issues
 1. Apple dropped support for Atheros Wi-Fi since Mojave and AR9565 it not natively supported. You can activate Wi-Fi on Mojave and higher OS using IO80211Family.kext and patched AirportAtheros40.kext from High Sierra. Install [HS80211Family.kext](https://www.insanelymac.com/forum/files/file/1008-io80211family-modif/) and the corresponding AirportAtheros40.kext for AR9565 on the bootloader. However,
@@ -49,6 +50,7 @@ If you have a variant such as DM500A2J-K30D, K32D, or K38D, you will notice that
 - Inject a working `ig-platform-id` and `SSDT-PNLF` found in OpenCorePkg bundle for working iGPU QE/CI and native brightness control. Test the HDMI-out and configure the framebuffer.
 - Change `SMBIOS` to iMac14,4 which is an iGPU-only model. You can update to Big Sur with no problem. You still have DRM and sound noise issues.
 - Buy a Broadcom Wi-Fi/Bluetooth Combo module for mPCIe. There are three antennas on the mainboard: two from Atheros AR9565 / AR3012 and one from TV Tuner Card originally on mPCIe slot. All share the form factor of U.FL. One option would be BCM94352HMB and Atheros's two antennas. The antennas may be short; use your soldering skills or tear down the motherboard to connect them. Another option is BCM94360HMB and three MHF4 to U.FL adaptors that connect to all three antennas. Test the signal and reposition the antenna on TV Tuner Card which is connected to the TV coax socket. For working Bluetooth, reconfigure USB mapping once you insert the card. BCM94352HMB works with AirportBrcmFixup, BrcmPatchRAM, and `ExtendBTFeatureFlags` in OpenCore, and BCM94360HMB works natively. Both support Continuity. Finally, disable Atheros AR9565 / AR3012 by injecting `class-code=FFFFFFFF` into AR9565 and killing AR3012's bluetooth.
+- Study and create an AppleALC layout and fix sound noise.
 
 ## Credits
 Apple for macOS
