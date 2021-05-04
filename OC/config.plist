@@ -72,6 +72,14 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>Fix restart from shutdown</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-PTS.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Add SMBus compatibility</string>
 				<key>Enabled</key>
 				<true/>
@@ -91,6 +99,36 @@
 		<array/>
 		<key>Patch</key>
 		<array>
+			<dict>
+				<key>Base</key>
+				<string></string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
+				<key>Comment</key>
+				<string>Restart fix: Rename M(_PTS) to ZPTS</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>X1BUUwE=</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data></data>
+				<key>OemTableId</key>
+				<data></data>
+				<key>Replace</key>
+				<data>WlBUUwE=</data>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data></data>
+			</dict>
 			<dict>
 				<key>Base</key>
 				<string></string>
@@ -548,9 +586,9 @@
 		<key>Emulate</key>
 		<dict>
 			<key>Cpuid1Data</key>
-			<data></data>
+			<data>oAYDAAAAAAAAAAAAAAAAAA==</data>
 			<key>Cpuid1Mask</key>
-			<data></data>
+			<data>/////wAAAAAAAAAAAAAAAA==</data>
 			<key>DummyPowerManagement</key>
 			<false/>
 			<key>MaxKernel</key>
@@ -568,13 +606,13 @@
 				<key>Base</key>
 				<string></string>
 				<key>Comment</key>
-				<string>Fake CPUID from Haswell to IvyBridge and enable XCPM, thanks to Pike R. Alpha and Meowthra</string>
+				<string>_xcpm_bootstrap (Ivy Bridge) 10.15+</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
-				<data>u9yCshA=</data>
+				<data>jUPEPEI=</data>
 				<key>Identifier</key>
 				<string>kernel</string>
 				<key>Limit</key>
@@ -586,7 +624,7 @@
 				<key>MinKernel</key>
 				<string></string>
 				<key>Replace</key>
-				<data>uzXoZR8=</data>
+				<data>jUPGPEI=</data>
 				<key>ReplaceMask</key>
 				<data></data>
 				<key>Skip</key>
@@ -604,7 +642,7 @@
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>uaABAAAPMg==</data>
 				<key>Identifier</key>
@@ -757,7 +795,7 @@
 			<key>ScanPolicy</key>
 			<integer>0</integer>
 			<key>SecureBootModel</key>
-			<string>x86legacy</string>
+			<string>j137</string>
 			<key>Vault</key>
 			<string>Optional</string>
 		</dict>
@@ -905,7 +943,7 @@
 			<key>AppleEvent</key>
 			<string>Builtin</string>
 			<key>CustomDelays</key>
-			<string>Auto</string>
+			<false/>
 			<key>KeyInitialDelay</key>
 			<integer>0</integer>
 			<key>KeySubsequentDelay</key>
@@ -1039,9 +1077,13 @@
 			<false/>
 			<key>ExitBootServicesDelay</key>
 			<integer>0</integer>
+			<key>ForgeUefiSupport</key>
+			<false/>
 			<key>IgnoreInvalidFlexRatio</key>
 			<true/>
 			<key>ReleaseUsbOwnership</key>
+			<false/>
+			<key>ReloadOptionRoms</key>
 			<false/>
 			<key>RequestBootVarRouting</key>
 			<true/>
