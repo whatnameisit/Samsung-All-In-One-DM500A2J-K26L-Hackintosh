@@ -6,12 +6,12 @@
 | Model | Samsung ATIV One 5 DM500A2J-K26L |
 | CPU | Intel Pentium 3558U |
 | SSD | *TeamGroup L5 Lite 3D 240GB (Replaced)* |
-| IGPU | *Intel HD Graphics (Haswell) (disabled from UEFI setup)* |
+| IGPU | *Intel HD Graphics (Haswell) (Disabled from UEFI setup)* |
 | DGPU | Sapphire HD 7750 1GB in mini PcIe slot with EXP GDC + half-to-full mini PcIe extension card |
 | Ethernet | Realtek RTL8168 Gigabit Ethernet Controller |
-| Wi-Fi / Bluetooth | Qualcomm Atheros AR9565 / AR3012 |
+| Wi-Fi / Bluetooth | *RTL8812BU-B812 USB wireless adapter / BCM94360CS2 with multiple adapters (Stock devices disabled)* |
 | Audio | Realtek HD Audio ALC282 |
-| SD Card Reader | *Realtek USB Card Reader RTS5129 (limited support)* |
+| SD Card Reader | *Realtek USB Card Reader RTS5129 (Limited support)* |
 | UEFI BIOS | Aptio Setup Utility P05AEK |
  
 ## Issues
@@ -19,6 +19,7 @@
     - The Wi-Fi is very slow.
     - Continuity features do not work.
     - The card is soldered and cannot be replaced.
+    - Therefore, I recommend you buy a supported USB wireless adapter. Refer to chris1111's [Wireless-USB-OC-Big-Sur-Adapter](https://github.com/chris1111/Wireless-USB-OC-Big-Sur-Adapter) for listed devices and the installation package.
 2. The SD card reader cannot read any cards. Refer to [this guide](https://github.com/ManuGithubSteam/XiaoMi-Pro-2018-HackintoshOC/wiki/2.0-Setup-SD-Card-Reader) to use it through VMWare.
 3. The IGPU Intel HD Graphics (Haswell) does not work well with macOS. Therefore, a compatible external graphics card is required and is to be connected via mini PcIe. Flashing a modded UEFI image or setup variables with modified Grub Shell is also required to make UEFI recognize DGPU.
 4. A GPU with GOP driver embedded VBIOS is necessary so that the user would not have to switch between `PC` mode and `HDMI` mode from UEFI Setup / OpenCore bootpicker and OS the machine booted into.
@@ -48,7 +49,7 @@
     - Delete the kernel patch `Fake CPUID` and enjoy native power management and advanced CPU features.
     - Inject a working `ig-platform-id` and `SSDT-PNLF` found in OpenCorePkg bundle for working iGPU QE/CI and native brightness control. Test the HDMI-out and configure the framebuffer.
     - Change `SMBIOS` to iMac14,4 which is an iGPU-only model. You can update to Big Sur with no problem. You still have DRM and sound noise issues.
-    - Buy a Broadcom Wi-Fi / Bluetooth Combo module for mini PCIe. There are three antennas on the mainboard: two from Atheros AR9565 / AR3012 and one from TV Tuner Card originally on mini PcIe slot. All share the form factor of U.FL. One option would be BCM94352HMB and Atheros's two antennas. The antennas may be short; use your soldering skills or tear down the motherboard to connect them. Another option is BCM94360HMB and three MHF4 to U.FL adaptors that connect to all three antennas. Test the signal and reposition the antenna on TV Tuner Card which is connected to the TV coax socket. For working Bluetooth, reconfigure USB mapping once you insert the card. BCM94352HMB works with AirportBrcmFixup, BrcmPatchRAM, and `ExtendBTFeatureFlags` in OpenCore, and BCM94360HMB works natively. Both support Continuity, but BCM94360HMB works better, being natively supported and capable of HID proxy. Finally, disable Atheros AR9565 / AR3012 by using the [ACPI patch](https://github.com/daliansky/OC-little/tree/master/16-%E7%A6%81%E6%AD%A2PCI%E8%AE%BE%E5%A4%87%E5%8F%8A%E8%AE%BE%E7%BD%AEASPM%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F/16-1-%E7%A6%81%E6%AD%A2PCI%E8%AE%BE%E5%A4%87) in [OC-little](https://github.com/daliansky/OC-little) and unassigning AR3012's Bluetooth USB port.
+    - Buy a Broadcom Wi-Fi / Bluetooth Combo module for mini PCIe. There are three antennas on the mainboard: two from Atheros AR9565 / AR3012 and one from TV Tuner Card originally on mini PcIe slot. All share the form factor of U.FL. Although there are many other options, I would recommend BCM94360CS2 with M.2 adapter and M.2 to Mini PCIe adapter so both Wi-Fi and Bluetooth are natively supported with full Continuity services.
     - Study and create an AppleALC layout and fix sound noise.
 
 ## Credits
