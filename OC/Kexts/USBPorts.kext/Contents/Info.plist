@@ -42,24 +42,6 @@
 				<data>DAAAAA==</data>
 				<key>ports</key>
 				<dict>
-					<key>BLTH</key>
-					<dict>
-						<key>UsbConnector</key>
-						<integer>255</integer>
-						<key>name</key>
-						<string>BLTH</string>
-						<key>port</key>
-						<data>BAAAAA==</data>
-					</dict>
-					<key>EXPG</key>
-					<dict>
-						<key>UsbConnector</key>
-						<integer>255</integer>
-						<key>name</key>
-						<string>EXPG</string>
-						<key>port</key>
-						<data>BwAAAA==</data>
-					</dict>
 					<key>HA01</key>
 					<dict>
 						<key>UsbConnector</key>
