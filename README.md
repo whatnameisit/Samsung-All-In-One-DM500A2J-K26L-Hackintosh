@@ -9,7 +9,7 @@
 | IGPU | *Intel HD Graphics (Haswell) (Disabled from UEFI setup)* |
 | DGPU | Sapphire HD 7750 1GB in mini PcIe slot with EXP GDC + half-to-full mini PcIe extension card |
 | Ethernet | Realtek RTL8168 Gigabit Ethernet Controller |
-| Wi-Fi / Bluetooth | *RTL8812BU-B812 USB wireless adapter / BCM94360CS2 with multiple adapters (Stock devices disabled)* |
+| Wi-Fi / Bluetooth | *RTL8812BU-B812 USB wireless adapter / BCM94360CS2 with multiple adapters to USB A (Stock devices disabled)* |
 | Audio | Realtek HD Audio ALC282 |
 | SD Card Reader | *Realtek USB Card Reader RTS5129 (Limited support)* |
 | UEFI BIOS | Aptio Setup Utility P05AEK |
@@ -20,8 +20,8 @@
     - Continuity features do not work.
     - The card is soldered and cannot be replaced.
     - Therefore, I recommend you buy a supported USB wireless adapter. Refer to chris1111's [Wireless-USB-OC-Big-Sur-Adapter](https://github.com/chris1111/Wireless-USB-OC-Big-Sur-Adapter) for listed devices and the installation package.
-2. The SD card reader cannot read any cards. Refer to [this guide](https://github.com/ManuGithubSteam/XiaoMi-Pro-2018-HackintoshOC/wiki/2.0-Setup-SD-Card-Reader) to use it through VMWare.
-3. The IGPU Intel HD Graphics (Haswell) does not work well with macOS. Therefore, a compatible external graphics card is required and is to be connected via mini PcIe. Flashing a modded UEFI image or setup variables with modified Grub Shell is also required to make UEFI recognize DGPU.
+2. There is no firmware in macOS for the SD card reader RTS5129 as of now. Refer to [this guide](https://github.com/ManuGithubSteam/XiaoMi-Pro-2018-HackintoshOC/wiki/2.0-Setup-SD-Card-Reader) to use it through VMWare.
+3. The IGPU Intel HD Graphics (Haswell) does not work well with macOS. Therefore, a compatible external graphics card is required and is to be connected via mini PcIe. Flashing a modded UEFI image or setup variables with modified Grub Shell is also required to make UEFI recognize DGPU, latter being the preferred method.
 4. A GPU with GOP driver embedded VBIOS is necessary so that the user would not have to switch between `PC` mode and `HDMI` mode from UEFI Setup / OpenCore bootpicker and OS the machine booted into.
 5. On non-Windows, ALC282 produces noise when the computer boots or shuts down. Disabling sound output by switching to `HDMI` mode cuts off the internal sound output which still preserves internal sound input. One may contribute by creating a layout for this machine.
 
@@ -49,7 +49,7 @@
     - Delete the kernel patch `Fake CPUID` and enjoy native power management and advanced CPU features.
     - Inject a working `ig-platform-id` and `SSDT-PNLF` found in OpenCorePkg bundle for working iGPU QE/CI and native brightness control. Test the HDMI-out and configure the framebuffer.
     - Change `SMBIOS` to iMac14,4 which is an iGPU-only model. You can update to Big Sur with no problem. You still have DRM and sound noise issues.
-    - Buy a Broadcom Wi-Fi / Bluetooth Combo module for mini PCIe. There are three antennas on the mainboard: two from Atheros AR9565 / AR3012 and one from TV Tuner Card originally on mini PcIe slot. All share the form factor of U.FL. Although there are many other options, I would recommend BCM94360CS2 with M.2 adapter and M.2 to Mini PCIe adapter so both Wi-Fi and Bluetooth are natively supported with full Continuity services.
+    - Insert BCM94360 variants into mini PCIe. There are three antennas on the mainboard: two from Atheros AR9565 / AR3012 and one from TV Tuner Card originally on mini PcIe slot. All share the form factor of U.FL. Although there are many other options, I would recommend BCM94360CS2 with M.2 adapter and M.2 to Mini PCIe adapter, which is already being used for Bluetooth, so both Wi-Fi and Bluetooth are natively supported with full Continuity services.
     - Study and create an AppleALC layout and fix sound noise.
 
 ## Credits
