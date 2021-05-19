@@ -9,13 +9,13 @@
 | IGPU | *Intel HD Graphics (Haswell) (Disabled from UEFI setup)* |
 | DGPU | Sapphire HD 7750 1GB in mini PcIe slot with EXP GDC + half-to-full mini PcIe extension card |
 | Ethernet | Realtek RTL8168 Gigabit Ethernet Controller |
-| Wi-Fi / Bluetooth | *RTL8812BU-B812 USB wireless adapter / BCM94360CS2 with multiple adapters to USB A (Stock devices disabled)* |
+| Wi-Fi / Bluetooth | *RTL8812BU-B812 USB wireless adapter / BCM94360CS2 with multiple adapters to USB A (Stock QCA9565 disabled)* |
 | Audio | Realtek HD Audio ALC282 |
 | SD Card Reader | *Realtek USB Card Reader RTS5129 (Limited support)* |
 | UEFI BIOS | Aptio Setup Utility P05AEK |
  
 ## Issues
-1. Apple dropped support for Atheros Wi-Fi since Mojave and AR9565 / AR3012 is not natively supported. You can activate Wi-Fi on Mojave and higher OS using IO80211Family.kext and patched AirportAtheros40.kext from High Sierra. Install [HS80211Family.kext](https://www.insanelymac.com/forum/files/file/1008-io80211family-modif/) and the corresponding AirportAtheros40.kext for AR9565 on the bootloader for working Wi-Fi. Install zxystd's [AthBluetoothFirmware](https://github.com/zxystd/AthBluetoothFirmware) for working Bluetooth. However,
+1. Apple dropped support for Atheros Wi-Fi since Mojave and QCA9565 (AR9565 / AR3012) is not natively supported. You can activate Wi-Fi on Mojave and higher OS using IO80211Family.kext and patched AirportAtheros40.kext from High Sierra. Install [HS80211Family.kext](https://www.insanelymac.com/forum/files/file/1008-io80211family-modif/) and the corresponding AirportAtheros40.kext for AR9565 on the bootloader for working Wi-Fi. Install zxystd's [AthBluetoothFirmware](https://github.com/zxystd/AthBluetoothFirmware) for working Bluetooth. However,
     1. The Wi-Fi is very slow.
     2. Continuity features do not work.
     3. The card is soldered and cannot be replaced.
