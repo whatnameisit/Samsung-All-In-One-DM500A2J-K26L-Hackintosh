@@ -21,7 +21,7 @@
     3. The card is soldered and cannot be replaced.
     4. The PC's casing is blocking the Wi-Fi signal that sometimes it gets disconnected even on Windows.
 
-    Therefore, I recommend you buy a supported USB wireless adapter. Refer to chris1111's [Wireless-USB-OC-Big-Sur-Adapter](https://github.com/chris1111/Wireless-USB-OC-Big-Sur-Adapter) for listed devices and the installation package.
+    Therefore, I recommend you buy a supported USB wireless adapter. Refer to chris1111's [Wireless-USB-OC-Big-Sur-Adapter](https://github.com/chris1111/Wireless-USB-OC-Big-Sur-Adapter) for listed devices and the installation package. Continuity still cannot be implemented.
 
 2. There is no firmware uploader in macOS for the SD card reader RTS5129 as of now. Refer to [this guide](https://github.com/ManuGithubSteam/XiaoMi-Pro-2018-HackintoshOC/wiki/2.0-Setup-SD-Card-Reader) to use it through VMWare.
 3. The IGPU Intel HD Graphics (Haswell) does not work well with macOS. Therefore, a compatible external graphics card is required and is to be connected via mini PCIe. Flashing a modded UEFI image or setup variables with modified Grub Shell is also required to make UEFI recognize DGPU, latter being the preferred method.
