@@ -15,7 +15,7 @@
 | UEFI BIOS | Aptio Setup Utility P05AEK |
  
 ## Issues
-1. Apple dropped support for Atheros Wi-Fi since Mojave and QCA9565 (AR9565 / AR3012) is not natively supported. You can activate Wi-Fi on Mojave and higher OS using IO80211Family.kext and patched AirportAtheros40.kext from High Sierra. Install [HS80211Family.kext](https://www.insanelymac.com/forum/files/file/1008-io80211family-modif/) and the corresponding AirportAtheros40.kext for AR9565 on the bootloader for working Wi-Fi. Install zxystd's [AthBluetoothFirmware](https://github.com/zxystd/AthBluetoothFirmware) for working Bluetooth. However,
+1. Apple dropped support for Atheros Wi-Fi since Mojave and QCA9565 (AR9565 / AR3012) is not natively supported. For Wi-Fi, add [HS80211Family.kext](https://www.insanelymac.com/forum/files/file/1008-io80211family-modif/) and the corresponding AirportAtheros40.kext for AR9565 in your bootloader configurtion. For Bluetooth, add zxystd's [AthBluetoothFirmware](https://github.com/zxystd/AthBluetoothFirmware). However,
     1. The Wi-Fi is very slow.
     2. Continuity features do not work.
     3. The card is soldered and cannot be replaced.
@@ -60,7 +60,7 @@ Atheros AR3012 Bluetooth works okay with Ath3kBT.kext. However, I had a leftover
 
 ![](images/UsbBluetooth.jpg)
 
-Another option with BCM94360NG is mentioned in [Other models](#other-models).
+Another option with BCM94360NG is mentioned in [Other models](#other-models) plus USB to mini PCIe.
 
 ## Credits
 Apple for macOS
