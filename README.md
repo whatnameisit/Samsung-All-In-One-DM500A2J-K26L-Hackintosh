@@ -9,24 +9,10 @@
 | IGPU | *Intel HD Graphics (Haswell) (Disabled from UEFI setup)* |
 | DGPU | Sapphire HD 7750 1GB in mini PcIe slot with EXP GDC + half-to-full mini PcIe extension card |
 | Ethernet | Realtek RTL8168 Gigabit Ethernet Controller |
-| Wi-Fi / Bluetooth | *RTL8812BU-B812 USB wireless adapter / BCM94360CS2 with multiple adapters to USB A (Stock QCA9565 disabled)* |
+| Wi-Fi / Bluetooth | *RTL8812BU-B812 USB wireless adapter / BRCM20702 Hub from BCM94360CS2 with multiple adapters to USB A (Stock QCA9565 disabled)* |
 | Audio | Realtek HD Audio ALC282 |
 | SD Card Reader | *Realtek USB Card Reader RTS5129 (Limited support)* |
 | UEFI BIOS | Aptio Setup Utility P05AEK |
- 
-## Issues
-1. Apple dropped support for Atheros Wi-Fi since Mojave and QCA9565 (AR9565 / AR3012) is not natively supported. For Wi-Fi, add [HS80211Family.kext](https://www.insanelymac.com/forum/files/file/1008-io80211family-modif/) and the corresponding AirportAtheros40.kext for AR9565 in your bootloader configurtion. For Bluetooth, add zxystd's [AthBluetoothFirmware](https://github.com/zxystd/AthBluetoothFirmware). However,
-    1. The Wi-Fi is very slow.
-    2. Continuity features do not work.
-    3. The card is soldered and cannot be replaced.
-    4. The PC's casing is blocking the Wi-Fi signal that sometimes it gets disconnected even on Windows.
-
-    Therefore, I recommend you buy a supported USB wireless adapter. Refer to chris1111's [Wireless-USB-OC-Big-Sur-Adapter](https://github.com/chris1111/Wireless-USB-OC-Big-Sur-Adapter) for listed devices and the installation package. Continuity still cannot be implemented.
-
-2. There is no firmware uploader in macOS for the SD card reader RTS5129 as of now, so it is disabled in macOS. Refer to [this guide](https://github.com/ManuGithubSteam/XiaoMi-Pro-2018-HackintoshOC/wiki/2.0-Setup-SD-Card-Reader) to use it through VMWare.
-3. The IGPU Intel HD Graphics (Haswell) does not work well with macOS. Therefore, a compatible external graphics card is required and is to be connected via mini PCIe. Flashing a modded UEFI image or setup variables with modified Grub Shell is also required to make UEFI recognize DGPU, latter being the preferred method.
-4. A GPU with GOP driver embedded VBIOS is necessary so that the user would not have to switch between `PC` mode and `HDMI` mode from UEFI Setup / OpenCore bootpicker and OS the machine booted into.
-5. On OS other than Windows, ALC282 produces noise when the computer boots or shuts down. Disabling sound output by switching to `HDMI` mode cuts off the internal sound output which still preserves internal sound input. One may contribute by creating a layout for this machine.
 
 ## UEFI setup
 ### Using modded Aptio Setup Utility image
@@ -56,7 +42,7 @@ If you have a variant such as DM500A2J-K30D, K32D, or K38D, you will notice that
   5. Study and create an AppleALC layout and fix sound noise.
 
 ## Bluetooth enhancement
-Atheros AR3012 Bluetooth works okay with Ath3kBT.kext. However, I had a leftover Apple's BCM94360CS2 which can be converted into a USB2 device. I bought USB to mini PCIe to M.2 A+E key to Apple Airport card converters, and the Bluetooth works the same way as in a real Mac.
+Atheros AR3012 Bluetooth works okay with Ath3kBT.kext. However, I had a leftover Apple's BCM94360CS2 which can be converted into a USB2 device, where Bluetooth over USB can be used. I bought USB to mini PCIe to M.2 A+E key to Apple Airport card converters, and the Bluetooth works the same way as in a real Mac.
 
 ![](images/UsbBluetooth.jpg)
 
