@@ -42,7 +42,7 @@ If you have a variant such as DM500A2J-K30D, K32D, or K38D, you will notice that
   5. Study and create an AppleALC layout and fix sound noise.
 
 ## Bluetooth enhancement
-Atheros AR3012 Bluetooth works okay with Ath3kBT.kext. However, I had a leftover Apple's BCM94360CS2 which can be converted into a USB2 device, where Bluetooth over USB can be used. I bought USB to mini PCIe to M.2 A+E key to Apple Airport card converters, and the Bluetooth works the same way as in a real Mac.
+Atheros AR3012 Bluetooth works okay with Ath3kBT.kext. However, I had a leftover Apple's BCM94360CS2 which can be converted into a USB2 device, where Bluetooth over USB can be used. I bought USB to mini PCIe to M.2 A+E key to Apple Airport card converters, and the Bluetooth works the same way as in a real Mac, such as OS recognition and HID proxy.
 
 ![](images/UsbBluetooth.jpg)
 
