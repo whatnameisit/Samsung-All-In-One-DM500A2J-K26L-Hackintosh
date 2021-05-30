@@ -652,6 +652,24 @@
 				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
+				<string>HibernationFixup.kext</string>
+				<key>Comment</key>
+				<string>Enable hibernation</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/HibernationFixup</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>BundlePath</key>
 				<string>AGPMInjector.kext</string>
 				<key>Comment</key>
 				<string>AGPM</string>
@@ -845,7 +863,7 @@
 			<key>ConsoleAttributes</key>
 			<integer>0</integer>
 			<key>HibernateMode</key>
-			<string>None</string>
+			<string>Auto</string>
 			<key>HideAuxiliary</key>
 			<false/>
 			<key>LauncherOption</key>
@@ -955,6 +973,8 @@
 				<key>run-efi-updater</key>
 				<string>No</string>
 			</dict>
+			<key>E09B9297-7928-4440-9AAB-D1F8536FBF0A</key>
+			<dict/>
 		</dict>
 		<key>Delete</key>
 		<dict>
@@ -1185,9 +1205,9 @@
 			<key>DeviceProperties</key>
 			<false/>
 			<key>FirmwareVolume</key>
-			<false/>
+			<true/>
 			<key>HashServices</key>
-			<false/>
+			<true/>
 			<key>OSInfo</key>
 			<false/>
 			<key>UnicodeCollation</key>
