@@ -1126,7 +1126,6 @@
 			<string>ExFatDxeLegacy.efi</string>
 			<string>HfsPlusLegacy.efi</string>
 			<string>OpenCanopy.efi</string>
-			<string>#AudioDxe.efi</string>
 		</array>
 		<key>Input</key>
 		<dict>
