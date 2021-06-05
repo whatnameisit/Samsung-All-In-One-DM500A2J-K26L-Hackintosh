@@ -1,5 +1,7 @@
 # Samsung ATIV One 5 DM500A2J-K26L Hackintosh
 
+![](images/AIO.jpg)
+
 ## System specification
 | Item | Details |
 | - | - |
