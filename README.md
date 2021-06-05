@@ -8,9 +8,9 @@
 | SSD | TeamGroup L5 Lite 3D 240GB *(Replaced stock HDD)* |
 | IGPU | Intel HD Graphics (Haswell) *(Disabled from UEFI setup)* |
 | DGPU | Sapphire HD 7750 1GB in mini PcIe slot with EXP GDC + half-to-full mini PcIe extension card *(Replaced stock TV tuner card)* |
-| RAM | Samsung SODIMM DDR3L 8GB x 2 *(upgraded)* |
+| RAM | Samsung 8GB x 2 1600 MHz DDR3L SODIMM *(upgraded)* |
 | Ethernet | Realtek RTL8168 Gigabit Ethernet Controller |
-| Wi-Fi / Bluetooth | RTL8812BU-B812 USB wireless adapter / BRCM20702 Hub from BCM94360CS2 with multiple adapters to USB A *(Disabled stock QCA9565)* |
+| Wi-Fi / Bluetooth | RTL8812BU-B812 USB wireless adapter / BCM20702 Hub from BCM94360CS2 with multiple adapters to USB A *(Disabled stock QCA9565)* |
 | Audio | Realtek HD Audio ALC282 |
 | SD Card Reader | Realtek USB Card Reader RTS5129 *(Limited support)* |
 | UEFI BIOS | Aptio Setup Utility P05AEK |
