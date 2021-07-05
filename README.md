@@ -13,7 +13,7 @@
 | RAM | Samsung 8GB x 2 1600 MHz DDR3L SODIMM *(upgraded)* |
 | Ethernet | Realtek RTL8168 Gigabit Ethernet Controller |
 | Wi-Fi / Bluetooth | RTL8812BU-B812 USB wireless adapter / BCM20702 Hub from BCM94360CS2 with multiple adapters to USB A *(Disabled stock QCA9565)* |
-| Audio | Realtek HD Audio ALC282 |
+| Audio | Realtek ALC282 |
 | SD Card Reader | Realtek USB Card Reader RTS5129 *(Limited support)* |
 | UEFI BIOS | Aptio Setup Utility P05AEK |
 
