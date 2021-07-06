@@ -450,6 +450,8 @@
 			<false/>
 			<key>ResetLogoStatus</key>
 			<false/>
+			<key>SyncTableIds</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>Booter</key>
@@ -818,7 +820,7 @@
 			<key>DisableIoMapper</key>
 			<false/>
 			<key>DisableLinkeditJettison</key>
-			<false/>
+			<true/>
 			<key>DisableRtcChecksum</key>
 			<false/>
 			<key>ExtendBTFeatureFlags</key>
@@ -848,6 +850,8 @@
 		</dict>
 		<key>Scheme</key>
 		<dict>
+			<key>CustomKernel</key>
+			<false/>
 			<key>FuzzyMatch</key>
 			<false/>
 			<key>KernelArch</key>
