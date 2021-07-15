@@ -510,11 +510,15 @@
 			<dict>
 				<key>compatible</key>
 				<string>pci8086,9c43</string>
+				<key>model</key>
+				<string>LPC Controller</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1b,0x0)</key>
 			<dict>
 				<key>layout-id</key>
 				<integer>22</integer>
+				<key>model</key>
+				<string>Realtek ALC282 High-Definition Audio</string>
 			</dict>
 		</dict>
 		<key>Delete</key>
@@ -1050,7 +1054,7 @@
 			<key>ProcessorType</key>
 			<integer>1537</integer>
 			<key>ROM</key>
-			<data>ESIzAAAA</data>
+			<data>ESIzRFVm</data>
 			<key>SpoofVendor</key>
 			<true/>
 			<key>SystemMemoryStatus</key>
